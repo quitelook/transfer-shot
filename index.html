@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Transfer Form</h2>
+    <form action="page.html" method="GET">
+      <label for="currentBalance">Current Balance:</label><br />
+      <input
+        type="text"
+        id="currentBalance"
+        name="currentBalance"
+      /><br /><br />
+
+      <label for="recipientName">Recipient Name:</label><br />
+      <input type="text" id="recipientName" name="recipientName" /><br /><br />
+
+      <label for="recipientEmail">Recipient Email:</label><br />
+      <input
+        type="email"
+        id="recipientEmail"
+        name="recipientEmail"
+      /><br /><br />
+
+      <label for="amount">Amount:</label><br />
+      <input type="number" id="amount" name="amount" /><br /><br />
+
+      <label for="reference">Reference:</label><br />
+      <input type="text" id="reference" name="reference" />
+      <button type="button" id="generate" onclick="generateRandomString()">
+        Generate reference
+      </button>
+      <br />
+      <label for="date">Date:</label><br />
+      <input type="text" id="date" name="date" /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      let reference = document.getElementById("reference");
+      function generateRandomString(event) {
+        // event.preventDefault();
+
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const randomAlphabet = alphabet.charAt(
+          Math.floor(Math.random() * alphabet.length)
+        );
+        let randomNumberString = "";
+        for (let i = 0; i < 19; i++) {
+          randomNumberString += Math.floor(Math.random() * 10);
+        }
+        let ref = randomAlphabet + randomNumberString;
+        reference.value = ref;
+      }
+    </script>
+  </body>
+</html>
